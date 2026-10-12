@@ -1,0 +1,23 @@
+navix-moto is licensed under the GNU Affero General Public License v3.0
+(see LICENSE). It builds on the work of the projects below.
+
+aasdk (https://github.com/f1xpl/aasdk), GPL-3.0-or-later
+  Copyright (C) 2018 f1x.studio (Michal Szwaj)
+  - internal/tlsconn/certs/headunit.crt and headunit.key: the reference head
+    unit certificate and private key published in aasdk's
+    src/Messenger/Cryptor.cpp.
+  - Frame layout, message IDs and handshake order follow aasdk.
+
+Headunit Revived (https://github.com/andreknieriem/headunit-revived), AGPL-3.0
+  - proto/aap/*.proto: protocol definitions (common, control, input, media,
+    sensors). Local change: in input.proto the enum MsgType is renamed
+    InputMsgType to avoid a name clash with media.proto; the wire format is
+    unaffected.
+  - proto/pb/aap/*.pb.go is generated from those files by proto/gen.sh.
+  - The service discovery contents (channel layout, 16 kHz system audio sink,
+    motorcycle vehicle type with no microphone) and the media/sensor/focus
+    handling follow its behaviour.
+
+Android Auto is a trademark of Google LLC. This project is not affiliated with
+or endorsed by Google. The protocol is not published by Google; everything here
+comes from the open-source projects above and observation of a real phone.
